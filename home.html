@@ -12,35 +12,39 @@
     height: 100vh;
 }
 * {
-    font-family: sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-sizing: border-box;
 }
 form {
     width: 500px;
-    padding:70px;
+    padding:40px;
     background: rgb(165, 235, 165);
-    border-radius: 15px;
 }
 
-button:hover {
-    opacity: .7;
-}
 </style>
-<body style="background-image: url(pic.jpg)";>
+<body style="background-image: url(pic.jpg)"></body>
+<div>
     <div>
+        <br>
+        <h1 style="background-color: rgb(165, 235, 165); color: black; text-align: center;">
+            Haloooo..
+        </h1>
         <form>
             <div class="form-group">
-              <input type="text" class="form-control" id="username" placeholder="Enter Username"> <br>
-              <input type="text" class="form-control" id="message" placeholder="Enter Message">
-            </div> <br>
-            <button id="send" class="btn btn-primary">Send</button> 
-            <div id="messages" class="bg-white px-6 py-8 scrool shadow-md text-black w-full"></div><br>
-          </form>
+              <input type="text" class="form-control" id="username" placeholder="Enter Username" /> <br>
+              <input type="text" class="form-control" id="message" placeholder="Enter Message" />
+        </form>
     </div>
+    <div>
+        <center><button type ="submit" id="send" class="btn btn-success">Send</button></center>
+        <br>
+        <div id="messages" class="text-dark"></div> 
+    </div>
+</div>
 
       <script>
         $(function() {
-            var socket = new WebSocket("wss://websocketbr-0af9345df03b.herokuapp.com/ws?username=" + encodeURIComponent($('#username').val()));
+            var socket = new WebSocket("wss://websocketsaw-282a4d8fc328.herokuapp.com/ws?username=" + encodeURIComponent($('#username').val()));
 
             socket.onmessage = function(event) {
                 var message = JSON.parse(event.data);
