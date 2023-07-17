@@ -29,18 +29,15 @@ button:hover {
 <body style="background-image: url(pic.jpg)";>
     <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Username</label>
-          <input type="text" class="form-control" id="username" placeholder="Enter Username">
-        </div> <br>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Message</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter Username"> <br>
           <input type="text" class="form-control" id="message" placeholder="Enter Message">
         </div> <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" class="btn btn-primary">Submit</button> 
         <div id="messages" class="bg-white px-6 py-8 scrool shadow-md text-black w-full"></div><br>
       </form>
 
-    <script>
+      <script>
+
         $(function() {
             var socket = new WebSocket("wss://websocketbr-0af9345df03b.herokuapp.com/ws?username=" + encodeURIComponent($('#username').val()));
 
@@ -50,7 +47,7 @@ button:hover {
                 $('#messages').append(content);
             };
 
-            $('#submit').click(function() {
+            $('#send').click(function() {
                 var message = {
                     username: $('#username').val(),
                     content: $('#message').val()
