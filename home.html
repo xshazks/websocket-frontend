@@ -27,14 +27,16 @@ button:hover {
 }
 </style>
 <body style="background-image: url(pic.jpg)";>
-    <form>
-        <div class="form-group">
-          <input type="text" class="form-control" id="username" placeholder="Enter Username"> <br>
-          <input type="text" class="form-control" id="message" placeholder="Enter Message">
-        </div> <br>
-        <button id="submit" class="btn btn-primary">Submit</button> 
-        <div id="messages" class="bg-white px-6 py-8 scrool shadow-md text-black w-full"></div><br>
-      </form>
+    <div>
+        <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="username" placeholder="Enter Username"> <br>
+              <input type="text" class="form-control" id="message" placeholder="Enter Message">
+            </div> <br>
+            <button id="send" class="btn btn-primary">Send</button> 
+            <div id="messages" class="bg-white px-6 py-8 scrool shadow-md text-black w-full"></div><br>
+          </form>
+    </div>
 
       <script>
 
@@ -47,7 +49,7 @@ button:hover {
                 $('#messages').append(content);
             };
 
-            $('#submit').click(function() {
+            $('#send').click(function() {
                 var message = {
                     username: $('#username').val(),
                     content: $('#message').val()
